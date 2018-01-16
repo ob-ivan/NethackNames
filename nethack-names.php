@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-$generator = new Ob_Ivan\NethackNames\NameGenerator();
-echo $generator->generate() . "\n";
+use Ob_Ivan\NethackNames\GenerateNameCommand;
+use Symfony\Component\Console\Application;
+
+$command = new GenerateNameCommand();
+$application = new Application();
+$application->add($command);
+$application->setDefaultCommand($command->getName(), true);
+$application->run();
