@@ -3,5 +3,8 @@
         "psr-4": {
             "Ob_Ivan\\NethackNames\\": "src/"
         }
+    },
+    "require": {
+        "symfony/console": "^4.0"
     }
 }
