@@ -2,8 +2,8 @@
 
 function generate_gender {
     case $(date +%N | tail -c2 | head -c1) in
-        0|2|4|6|8) echo male
-        1|3|5|7|9) echo female
+        0|2|4|6|8) echo male   ;;
+        1|3|5|7|9) echo female ;;
     esac
 }
 
