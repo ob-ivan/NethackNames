@@ -1,0 +1,7 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Ob_Ivan\\NethackNames\\": "src/"
+        }
+    }
+}
