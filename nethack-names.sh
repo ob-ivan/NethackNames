@@ -16,7 +16,7 @@ if [ $SAVE_COUNT -eq 1 ]; then
 else
     if [[ -z $SAVES ]]; then
         GENDER=$(generate_gender)
-        NAME=$(php nethack-names.php gender=$GENDER)
+        NAME=$(php nethack-names.php --gender=$GENDER)
         export NETHACKOPTIONS="gender=$GENDER, catname:$(php nethack-names.php), dogname:$(php nethack-names.php), horsename:$(php nethack-names.php)"
     else
         echo 'Available names: ' $SAVES

@@ -19,8 +19,22 @@ class GenerateNameCommand extends Command {
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $gender = $input->getOption(self::OPTION_GENDER);
-        $generator = new NameGenerator();
-        $output->writeln($generator->generate($gender));
+        $generator = $this->getNameGenerator();
+        if ($generator instanceof GenderAwareInterface) {
+            $gender = $input->getOption(self::OPTION_GENDER);
+            if ($gender) {
+                $generator->setGender($gender);
+            }
+        }
+        $output->writeln(ucfirst($generator->generate()));
+    }
+
+    private function getNameGenerator(): NameGeneratorInterface {
+        $factories = [
+            function () { return new UnutterableNameGenerator(); },
+            function () { return new SlavicNameGenerator(); },
+        ];
+        $factory = $factories[array_rand($factories)];
+        return $factory();
     }
 }

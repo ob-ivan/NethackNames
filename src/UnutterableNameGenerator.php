@@ -1,7 +1,7 @@
 <?php
 namespace Ob_Ivan\NethackNames;
 
-class NameGenerator {
+class UnutterableNameGenerator implements NameGeneratorInterface {
     const CONSONANTS = 'bcdfghjkllmmnnpqrssttvwxyz';
     const VOWELS = 'aaeeiioouuy';
 
