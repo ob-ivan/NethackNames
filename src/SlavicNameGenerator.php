@@ -3,6 +3,7 @@ namespace Ob_Ivan\NethackNames;
 
 class SlavicNameGenerator implements GenderAwareInterface, NameGeneratorInterface {
     const ROOTS = [
+        'belo',
         'bogu',
         'bole',
         'bori',
@@ -29,6 +30,7 @@ class SlavicNameGenerator implements GenderAwareInterface, NameGeneratorInterfac
         'rosti',
         'slavo',
         'stani',
+        'sudi',
         'sveto',
         'svyato',
         'tverdi',
@@ -43,6 +45,8 @@ class SlavicNameGenerator implements GenderAwareInterface, NameGeneratorInterfac
         'zveni',
         // mocking area
         'kami', 'kaze',
+        'tolsto', 'zado',
+        'oble', 'piha',
         'proto', 'popo',
     ];
 
@@ -54,8 +58,8 @@ class SlavicNameGenerator implements GenderAwareInterface, NameGeneratorInterfac
 
     public function generate(): string {
         $method = $this->select([
-            'generateDoubleRoot' => 8,
-            'generateSingleRoot' => 2,
+            'generateDoubleRoot' => 10,
+            'generateSingleRoot' => 1,
             'generateDiminutive' => 1,
         ]);
         return $this->$method();
@@ -98,6 +102,7 @@ class SlavicNameGenerator implements GenderAwareInterface, NameGeneratorInterfac
         if ($this->gender === GenderAwareInterface::GENDER_FEMALE) {
             return $root . 'ka';
         }
+        return $root;
     }
 
     private function getRandomRoot(): string {
